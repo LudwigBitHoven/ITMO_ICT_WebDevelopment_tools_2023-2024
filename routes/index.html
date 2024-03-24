@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Routes - Лабораторная работа 1</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Лабораторная работа 1</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../main/" class="nav-link">Main</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../models/" class="nav-link">Models</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Routes</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../connection/" class="nav-link">Connection</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../models/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../connection/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#_1" class="nav-link">Эндпоинты</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#_2" class="nav-link">Регистрация/Авторизация</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_3" class="nav-link">Базовые ручки для юзера</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_4" class="nav-link">Редактирование борда</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_5" class="nav-link">Администрация борда</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_6" class="nav-link">Редактирование тасков</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#_7" class="nav-link">Получение списка тасков</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="_1">Эндпоинты</h1>
+<p>Ручки, запросы, skill-issue из-за каскадного удаления в sqlmodel/sqlalchemy.</p>
+<h2 id="_2">Регистрация/Авторизация</h2>
+<p>Для реализации хеширования и jwt токенов были использованы следующие библиотеки:</p>
+<pre><code class="language-Python">from passlib.context import CryptContext
+import jwt
+</code></pre>
+<p>Объявим основные функции для хеширования и проверки паролей, создания jwt токенов и их декодирования</p>
+<pre><code class="language-Python">SECRET_KEY = &quot;iloveyou&quot;
+ALGORITHM = &quot;HS256&quot;
+
+
+router = APIRouter()
+pwd_context = CryptContext(schemes=[&quot;bcrypt&quot;], deprecated=&quot;auto&quot;)
+
+
+def hash_password(password: str):
+    return pwd_context.hash(password)
+
+def verify_password(plain_password, hashed_password):
+    return pwd_context.verify(plain_password, hashed_password)
+
+def create_access_token(data: dict):
+    return jwt.encode(data, SECRET_KEY, algorithm=ALGORITHM)
+
+def decode_token(token):
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=ALGORITHM)
+        return payload['sub']
+    except Exception:
+        return None
+</code></pre>
+<h2 id="_3">Базовые ручки для юзера</h2>
+<pre><code class="language-Python">@router.get(&quot;/me&quot;) # получение данных о себе
+async def get_users(token, session=Depends(get_session)):
+    temp = decode_token(token)
+    if temp:
+        user = session.scalars(select(User).where(User.email == temp)).one()
+        return {&quot;name&quot;: user.email}
+    raise HTTPException(status_code=403, detail=&quot;Forbidden&quot;)
+
+
+@router.get(&quot;/users&quot;) # получение данных о всех юзерах в бд
+async def get_users(token, session=Depends(get_session)):
+    temp = decode_token(token)
+    if temp:
+        result = session.scalars(select(User)).all()
+        return result
+    raise HTTPException(status_code=403, detail=&quot;Forbidden&quot;)
+
+
+@router.patch(&quot;/change_password&quot;) # Смена пароля
+async def change_password(token: str, old_password: str, new_password: str, session=Depends(get_session)):
+    temp = decode_token(token)
+    if temp:
+        user = session.scalars(select(User).where(User.email == temp)).one()
+        if not verify_password(old_password, user.password):
+            raise HTTPException(status_code=401, detail=&quot;Invalid old password&quot;)
+        user.password = hash_password(new_password)
+        session.add(user)
+        session.commit()
+        return {'message': 'success'}
+    raise HTTPException(status_code=403, detail=&quot;Forbidden&quot;)
+
+
+@router.post(&quot;/signup&quot;) # регистрация
+async def sign_up(user: User, session=Depends(get_session)):
+    try:
+        user.password = hash_password(user.password)
+        session.add(user)
+        session.commit()
+        return {&quot;message&quot;: &quot;success&quot;}
+    except exc.IntegrityError:
+        return HTTPException(status_code=401, detail=&quot;User already exists&quot;)
+
+
+@router.post(&quot;/login&quot;) # вход
+async def login(user: User, session=Depends(get_session)):
+    if not session.exec(select(User).where(User.email == user.email)).all():
+        raise HTTPException(status_code=401, detail=&quot;Invalid email&quot;)
+    hashed = session.execute(select(User.password).where(User.email == user.email)).first()
+    if not verify_password(user.password, hashed.password):
+        raise HTTPException(status_code=401, detail=&quot;Invalid password&quot;)
+    access_token = create_access_token({&quot;sub&quot;: user.email, &quot;iat&quot;: datetime.datetime.utcnow(), &quot;exp&quot;: datetime.datetime.utcnow() + datetime.timedelta(hours=24)})
+    return {&quot;access_token&quot;: access_token}
+</code></pre>
+<h2 id="_4">Редактирование борда</h2>
+<pre><code class="language-Python">@router.post(&quot;/create_board&quot;)
+async def create_board(token: str, session=Depends(get_session)):
+    temp = decode_token(token)
+    if temp:
+        user = session.scalars(select(User).where(User.email == temp)).one()
+        board = Board(users=[user], readonly=False)
+        session.add(board)
+        session.commit()
+        user.boards.append(board)
+        session.refresh(board)
+        session.refresh(user)
+        longboard = LongBoard(board_id=board.id)
+        shortboard = ShortBoard(board_id=board.id)
+        session.add(longboard)
+        session.add(shortboard)
+        session.commit()
+        session.refresh(longboard)
+        session.refresh(shortboard)
+        return {&quot;message&quot;: board}
+    raise HTTPException(status_code=403, detail=&quot;Forbidden&quot;)
+
+
+@router.delete(&quot;/delete_board&quot;) # не смог настроить каскадное удаление, поэтому делаю его вручную
+async def delete_board(board_id: int, token: str, session=Depends(get_session)):
+    temp = decode_token(token)
+    if temp:
+        user = session.scalars(select(User).where(User.email == temp)).one()
+        cmd = select(UsersBoardsLink).where(UsersBoardsLink.board_id == board_id, UsersBoardsLink.user_id == user.id)
+        if session.scalars(cmd).all():
+            # удаление борд
+            delete_longboard = delete(LongBoard).where(LongBoard.board_id == board_id)
+            delete_shortboard = delete(ShortBoard).where(ShortBoard.board_id == board_id)
+            delete_board = delete(Board).where(Board.id == board_id)
+            delete_link = delete(UsersBoardsLink).where(UsersBoardsLink.board_id == board_id)
+            # удаление тасков
+            cmd_longtasks = select(LongTasks.id).join(LongBoard).where(LongBoard.board_id == board_id)
+            cmd_pertasks = select(PeriodicTasks.id).join(ShortBoard).where(ShortBoard.board_id == board_id)
+            session.exec(delete(LongTasks).where(LongTasks.id.in_(cmd_longtasks)))
+            session.exec(delete(PeriodicTasks).where(PeriodicTasks.id.in_(cmd_pertasks)))
+            session.exec(delete_longboard)
+            session.exec(delete_shortboard)
+            session.exec(delete_link)
+            session.exec(delete_board)
+            session.commit()
+            return {&quot;message&quot;: &quot;success&quot;}
+    raise HTTPException(status_code=403, detail=&quot;Forbidden&quot;)
+
+</code></pre>
+<h2 id="_5">Администрация борда</h2>
+<pre><code class="language-Python">@router.post(&quot;/invite_user&quot;)
+async def invite_user(board_id: int, user_email: str, token: str, readonly: bool = True, session=Depends(get_session)):
+    temp = decode_token(token)
+    if temp:
+        user = session.scalars(select(User).where(User.email == temp)).one()
+        cmd = select(UsersBoardsLink).where(UsersBoardsLink.board_id == board_id, UsersBoardsLink.user_id == user.id)
+        if session.scalars(cmd).all():
+            user_id = session.scalars(select(User.id).where(User.email == user_email)).one()
+            link = UsersBoardsLink(user_id=user_id, board_id=board_id, readonly=readonly)
+            session.add(link)
+            session.commit()
+            return {&quot;message&quot;: &quot;success&quot;}
+    raise HTTPException(status_code=403, detail=&quot;Forbidden&quot;)
+
+
+@router.delete(&quot;/kick_user&quot;)
+async def kick_user(board_id: int, user_email: str, token: str, session=Depends(get_session)):
+    temp = decode_token(token)
+    if temp:
+        user = session.scalars(select(User).where(User.email == temp)).one()
+        cmd = select(UsersBoardsLink).where(UsersBoardsLink.board_id == board_id, UsersBoardsLink.user_id == user.id)
+        if session.scalars(cmd).all():
+            user_id = session.scalars(select(User.id).where(User.email == user_email)).one()
+            unlink = delete(UsersBoardsLink).where(UsersBoardsLink.user_id == user_id, UsersBoardsLink.board_id == board_id)
+            session.exec(unlink)
+            session.commit()
+            return {&quot;message&quot;: &quot;success&quot;}
+    raise HTTPException(status_code=403, detail=&quot;Forbidden&quot;)
+
+</code></pre>
+<h2 id="_6">Редактирование тасков</h2>
+<pre><code class="language-Python">@router.post(&quot;/create_long&quot;)
+async def create_long(task: LongTasks, longboard_id: int, token: str, session=Depends(get_session)):
+    temp = decode_token(token)
+    if temp:
+        user = session.scalars(select(User).where(User.email == temp)).one()
+        cmd = select(Board).join(LongBoard).join(UsersBoardsLink).where(LongBoard.id == longboard_id, UsersBoardsLink.user_id == user.id, LongBoard.board_id == Board.id, UsersBoardsLink.readonly == False)
+        if session.scalars(cmd).all():
+            task.longboard_id = longboard_id
+            session.add(task)
+            session.commit()
+            session.refresh(task)
+            return {&quot;message&quot;: &quot;success&quot;}
+    raise HTTPException(status_code=403, detail=&quot;Forbidden&quot;)
+
+
+@router.post(&quot;/create_periodic&quot;)
+async def create_periodic(task: PeriodicTasks, shortboard_id: int, token: str, session=Depends(get_session)):
+    temp = decode_token(token)
+    if temp:
+        user = session.scalars(select(User).where(User.email == temp)).one()
+        cmd = select(Board).join(ShortBoard).join(UsersBoardsLink).where(ShortBoard.id == shortboard_id, UsersBoardsLink.user_id == user.id, ShortBoard.board_id == Board.id, UsersBoardsLink.readonly == False)
+        if session.scalars(cmd).all():
+            task.shortboard_id = shortboard_id
+            session.add(task)
+            session.commit()
+            session.refresh(task)
+            return {&quot;message&quot;: &quot;success&quot;}
+    raise HTTPException(status_code=403, detail=&quot;Forbidden&quot;)
+
+
+@router.delete(&quot;/delete_periodic&quot;)
+async def delete_periodic(task_id: int, shortboard_id: int, token: str, session=Depends(get_session)):
+    temp = decode_token(token)
+    if temp:
+        user = session.scalars(select(User).where(User.email == temp)).one()
+        cmd = select(Board).join(ShortBoard).join(UsersBoardsLink).where(ShortBoard.id == shortboard_id, UsersBoardsLink.user_id == user.id, ShortBoard.board_id == Board.id, UsersBoardsLink.readonly == False)
+        if session.scalars(cmd).all():
+            delete_task = delete(PeriodicTasks).where(PeriodicTasks.shortboard_id == shortboard_id, PeriodicTasks.id == task_id)
+            session.exec(delete_task)
+            session.commit()
+            return {&quot;message&quot;: &quot;success&quot;}
+    raise HTTPException(status_code=403, detail=&quot;Forbidden&quot;)
+
+
+@router.delete(&quot;/delete_long&quot;)
+async def delete_long(task_id: int, longboard_id: int, token: str, session=Depends(get_session)):
+    temp = decode_token(token)
+    if temp:
+        user = session.scalars(select(User).where(User.email == temp)).one()
+        cmd = select(Board).join(LongBoard).join(UsersBoardsLink).where(LongBoard.id == longboard_id, UsersBoardsLink.user_id == user.id, LongBoard.board_id == Board.id, UsersBoardsLink.readonly == False)
+        if session.scalars(cmd).all():
+            delete_task = delete(LongTasks).where(LongTasks.longboard_id == longboard_id, LongTasks.id == task_id)
+            session.exec(delete_task)
+            session.commit()
+            return {&quot;message&quot;: &quot;success&quot;}
+    raise HTTPException(status_code=403, detail=&quot;Forbidden&quot;)
+
+</code></pre>
+<h2 id="_7">Получение списка тасков</h2>
+<pre><code class="language-Python">@router.get(&quot;/tasks&quot;)
+async def get_tasks(token, board_id: int = None, session=Depends(get_session)):
+    temp = decode_token(token)
+    if temp: # проверка валиден ли токен
+        user = session.scalars(select(User).where(User.email == temp)).one() # получаем юзера по почте, ассоциированной с токеном
+        cmd = select(UsersBoardsLink).where(UsersBoardsLink.board_id == board_id, UsersBoardsLink.user_id == user.id) # проверяем есть ли доступ у пользователя к борду
+        if session.scalars(cmd).all():
+            cmd_long = select(LongTasks).join(LongBoard).join(Board).filter(LongBoard.board_id == board_id)
+            cmd_per = select(PeriodicTasks).join(ShortBoard).join(Board).filter(ShortBoard.board_id == board_id)
+            return session.scalars(cmd_per).all(), session.scalars(cmd_long).all()
+    raise HTTPException(status_code=403, detail=&quot;Forbidden&quot;)
+
+
+@router.get(&quot;/tasks/longtasks&quot;)
+async def get_long(token, board_id: int = None, session=Depends(get_session)):
+    temp = decode_token(token)
+    if temp:
+        user = session.scalars(select(User).where(User.email == temp)).one()
+        cmd = select(UsersBoardsLink).where(UsersBoardsLink.board_id == board_id, UsersBoardsLink.user_id == user.id)
+        if session.scalars(cmd).all():
+            cmd_long = select(LongTasks).join(LongBoard).join(Board).filter(LongBoard.board_id == board_id)
+            return session.scalars(cmd_long).all()
+    raise HTTPException(status_code=403, detail=&quot;Forbidden&quot;)
+
+
+@router.get(&quot;/tasks/periodictasks&quot;)
+async def get_periodic(token, board_id: int = None, session=Depends(get_session)):
+    temp = decode_token(token)
+    if temp:
+        user = session.scalars(select(User).where(User.email == temp)).one()
+        cmd = select(UsersBoardsLink).where(UsersBoardsLink.board_id == board_id, UsersBoardsLink.user_id == user.id)
+        if session.scalars(cmd).all():
+            cmd_per = select(PeriodicTasks).join(ShortBoard).join(Board).filter(ShortBoard.board_id == board_id)
+            return session.scalars(cmd_per).all()
+    raise HTTPException(status_code=403, detail=&quot;Forbidden&quot;)
+
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
