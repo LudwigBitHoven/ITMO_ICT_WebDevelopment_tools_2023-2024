@@ -1,3 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/connection/</loc>
+         <lastmod>2024-03-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/main/</loc>
+         <lastmod>2024-03-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/models/</loc>
+         <lastmod>2024-03-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/routes/</loc>
+         <lastmod>2024-03-27</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
 </urlset>
