@@ -1,28 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/</loc>
+         <lastmod>2024-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/connection/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/backend/</loc>
+         <lastmod>2024-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/main/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/connection/</loc>
+         <lastmod>2024-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/models/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/description/</loc>
+         <lastmod>2024-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/routes/</loc>
-         <lastmod>2024-03-27</lastmod>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/main/</loc>
+         <lastmod>2024-05-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/models/</loc>
+         <lastmod>2024-05-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/parsescrape/</loc>
+         <lastmod>2024-05-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/routes/</loc>
+         <lastmod>2024-05-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/scrape_launch/</loc>
+         <lastmod>2024-05-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/sum/</loc>
+         <lastmod>2024-05-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/sum_launch/</loc>
+         <lastmod>2024-05-07</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/sum_realisations/</loc>
+         <lastmod>2024-05-07</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

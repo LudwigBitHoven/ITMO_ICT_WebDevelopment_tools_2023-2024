@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/sum/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Импорты, базовый сумматор - Лабораторная работа 1</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u0418\u043c\u043f\u043e\u0440\u0442\u044b, \u0431\u0430\u0437\u043e\u0432\u044b\u0439 \u0441\u0443\u043c\u043c\u0430\u0442\u043e\u0440";
+        var mkdocs_page_input_path = "sum.md";
+        var mkdocs_page_url = "/ITMO_ICT_WebDevelopment_tools_2023-2024/w/sum/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Лабораторная работа 1
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Лабораторная работа 1</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Бекенд на FastAPI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="..">Описание варианта</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../main/">Main</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../models/">Models</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../routes/">Routes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../connection/">Connection</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Лабораторная работа 2</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Потоки, процессы, асинхронность.</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Сумматор</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" href="./">Импорты, базовый сумматор</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../sum_realisations/">Реализации сумматора</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../sum_launch/">Запуск</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Парсер/скрапер</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../description/">Импорты, базовый скрапер</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../backend/">Связь с БД</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../parsescrape/">Реализации скрапера</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../scrape_launch/">Запуск</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Лабораторная работа 1</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Лабораторная работа 2</li>
+          <li class="breadcrumb-item">Потоки, процессы, асинхронность.</li>
+          <li class="breadcrumb-item">Сумматор</li>
+      <li class="breadcrumb-item active">Импорты, базовый сумматор</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="_1">База сумматора<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Задача: Напишите три различных программы на Python, использующие каждый из подходов: threading, multiprocessing и async. Каждая программа должна решать считать сумму всех чисел от 1 до 1000000. Разделите вычисления на несколько параллельных задач для ускорения выполнения.
+Импортируем необходимые библиотеки:</p>
+<pre><code class="language-Python">import threading
+import asyncio
+import multiprocessing
+from typing import Tuple, List
+import numpy as np
+import time
+import sys
+</code></pre>
+<p>Реализуем базовый класс, который в дальнейшем будет использоваться реализациями сумматора на библиотеке threading, asyncio и multiprocessing:</p>
+<pre><code class="language-Python">class SumCalc:
+    def __init__(self, n: int, split_num: int):
+        &quot;&quot;&quot;
+        Создаем искусственные таски для дальнейших вычислений.
+        В каждом кортеже итогового списка хранятся попарно все
+        четные числа от 0 до n включительно, по парам значений
+        в дальнейшем будут высчитыватся нечетные числа, находящиеся
+        между ними: 
+        [2, 4, 6],
+        2 + 4 / 2 = 3,
+        4 + 6 / 2 = 5,
+        [2, 3, 4, 5, 6]
+        &quot;&quot;&quot;
+        even_lst = [(num - 2, num) for num in range(2, n + 1, 2)]
+        self.tasks = np.array_split(even_lst, split_num)
+        self.sum = np.int64(n)
+
+    def run(self):
+        start = time.time()
+        self._calculate()
+        end = time.time()
+        return f&quot;Время выполнения {self}: {end - start} секунд, сумма: {self.sum} у.е.&quot;
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../connection/" class="btn btn-neutral float-left" title="Connection"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../sum_realisations/" class="btn btn-neutral float-right" title="Реализации сумматора">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../connection/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../sum_realisations/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

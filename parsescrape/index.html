@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/parsescrape/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Реализации скрапера - Лабораторная работа 1</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u0420\u0435\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u0438 \u0441\u043a\u0440\u0430\u043f\u0435\u0440\u0430";
+        var mkdocs_page_input_path = "parsescrape.md";
+        var mkdocs_page_url = "/ITMO_ICT_WebDevelopment_tools_2023-2024/w/parsescrape/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Лабораторная работа 1
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Лабораторная работа 1</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Бекенд на FastAPI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="..">Описание варианта</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../main/">Main</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../models/">Models</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../routes/">Routes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../connection/">Connection</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Лабораторная работа 2</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Потоки, процессы, асинхронность.</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#">Сумматор</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../sum/">Импорты, базовый сумматор</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../sum_realisations/">Реализации сумматора</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../sum_launch/">Запуск</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Парсер/скрапер</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="../description/">Импорты, базовый скрапер</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../backend/">Связь с БД</a>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" href="./">Реализации скрапера</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../scrape_launch/">Запуск</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Лабораторная работа 1</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Лабораторная работа 2</li>
+          <li class="breadcrumb-item">Потоки, процессы, асинхронность.</li>
+          <li class="breadcrumb-item">Парсер/скрапер</li>
+      <li class="breadcrumb-item active">Реализации скрапера</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="_1">Реализации скрапера/парсера<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Напишем реализацию скрапера/парсера на потоках:</p>
+<pre><code class="language-Python">class ThreadScrape(BaseScraper):
+    def __str__(self):
+        return &quot;ThreadScrape&quot;
+
+    def _thread_save(self, link):
+        with self.session.get(&quot;http:&quot; + link, timeout=8) as req:
+            super().fetch(link)
+            if req.status_code == 200:
+                img = req.content
+                self.save_img(img)
+            else:
+                print(f&quot;Status {req.status_code}&quot;)
+
+    def _thread_parse(self, num):
+        img_links = self.extract_img_urls(num)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=NUMBER_OF_WORKERS + 1) as executor:  # Limit to 4 worker threads
+            for link in img_links:
+                super().parse(num)
+                executor.submit(self._thread_save, link)
+                print(&quot;Preparing to fire append row...&quot;)
+                backend.append_row(self.base_url + &quot;/&quot; + f&quot;{num}&quot;, link)
+                time.sleep(1.5)
+
+    def _calculate(self):
+        with concurrent.futures.ThreadPoolExecutor(max_workers=NUMBER_OF_WORKERS) as executor:  # Limit to 4 worker threads
+            for i in self.page_range:
+                executor.submit(self._thread_parse, i)
+                time.sleep(5)
+</code></pre>
+<p>Напишем реализацию скрапера/парсера на asyncio:</p>
+<pre><code class="language-Python">class AsyncScrape(BaseScraper):
+    def __str__(self):
+        return &quot;AsyncScrape&quot;
+
+    async def _async_save(self, link):
+        with self.session.get(&quot;http:&quot; + link, timeout=8) as req:
+            print(f&quot;Fetching {link}...&quot;)
+            if req.status_code == 200:
+                img = req.content
+                self.save_img(img)
+            else:
+                print(f&quot;Status {req.status_code}&quot;)
+
+    async def _async_parse(self, num):
+        img_links = self.extract_img_urls(num)
+        tasks = []
+        for link in img_links:  # processing links
+            task = asyncio.create_task(self._async_save(link))
+            await task
+            backend.append_row(self.base_url + &quot;/&quot; + f&quot;{num}&quot;, link)
+            print(f&quot;Parsing {num}...&quot;)
+            time.sleep(1.5)
+
+    async def _calculate_async(self):
+        tasks = []
+        for i in self.page_range:
+            task = asyncio.create_task(self._async_parse(i))
+            tasks.append(task)
+            time.sleep(5)
+
+        await asyncio.gather(*tasks)
+
+    def _calculate(self):
+        asyncio.run(self._calculate_async())
+</code></pre>
+<p>Напишем реализацию скрапера/парсера на процессах:</p>
+<pre><code class="language-Python">class ProcessScrape(BaseScraper):
+    def __str__(self):
+        return &quot;ProcessScrape&quot;
+
+    def _process_save(self, link):
+        with self.session.get(&quot;http:&quot; + link, timeout=8) as req:
+            if req.status_code == 200:
+                img = req.content
+                self.save_img(img)
+            else:
+                print(f&quot;Status {req.status_code}&quot;)
+
+    def _process_parse(self, num):
+        img_links = self.extract_img_urls(num)
+        processes = []
+        for link in img_links:  # processing links
+            p = Process(target=self._process_save, args=(link,))
+            p.start()
+            processes.append(p)
+            backend.append_row(self.base_url + &quot;/&quot; + f&quot;{num}&quot;, link)
+            time.sleep(1.5)
+
+        for p in processes:
+            p.join()
+
+    def _calculate(self):
+        processes = []
+        for i in self.page_range:
+            p = Process(target=self._process_parse, args=(i,))
+            p.start()
+            processes.append(p)
+            time.sleep(5)
+
+        for p in processes:
+            p.join()
+</code></pre>
+<p>Каждая из реализаций переключается между страницами с периодом 5 секунд и сохраняет картинки с каждой страницы с переиодом 1.5 секунд. На каждой странице находится около 12 изображений. Такой подход с задержкой позволяет избежать подозрений в DDoS-е</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../backend/" class="btn btn-neutral float-left" title="Связь с БД"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../scrape_launch/" class="btn btn-neutral float-right" title="Запуск">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../backend/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../scrape_launch/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

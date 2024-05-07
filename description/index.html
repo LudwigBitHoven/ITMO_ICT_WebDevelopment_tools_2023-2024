@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/description/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Импорты, базовый скрапер - Лабораторная работа 1</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u0418\u043c\u043f\u043e\u0440\u0442\u044b, \u0431\u0430\u0437\u043e\u0432\u044b\u0439 \u0441\u043a\u0440\u0430\u043f\u0435\u0440";
+        var mkdocs_page_input_path = "description.md";
+        var mkdocs_page_url = "/ITMO_ICT_WebDevelopment_tools_2023-2024/w/description/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Лабораторная работа 1
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Лабораторная работа 1</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Бекенд на FastAPI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="..">Описание варианта</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../main/">Main</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../models/">Models</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../routes/">Routes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../connection/">Connection</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Лабораторная работа 2</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Потоки, процессы, асинхронность.</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#">Сумматор</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../sum/">Импорты, базовый сумматор</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../sum_realisations/">Реализации сумматора</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../sum_launch/">Запуск</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Парсер/скрапер</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" href="./">Импорты, базовый скрапер</a>
+    <ul class="current">
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../backend/">Связь с БД</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../parsescrape/">Реализации скрапера</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../scrape_launch/">Запуск</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Лабораторная работа 1</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Лабораторная работа 2</li>
+          <li class="breadcrumb-item">Потоки, процессы, асинхронность.</li>
+          <li class="breadcrumb-item">Парсер/скрапер</li>
+      <li class="breadcrumb-item active">Импорты, базовый скрапер</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="_1">Импорты, базовый скрапер<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Необходимые библиотеки для скрипта:</p>
+<pre><code class="language-Python">from urllib.parse import unquote
+from os import path, makedirs, cpu_count
+from pygsheets.exceptions import InvalidArgumentValue, IncorrectCellLabel
+from typing import Tuple, List
+import time
+import requests
+from bs4 import BeautifulSoup
+from urllib3.exceptions import InsecureRequestWarning
+from multiprocessing import Process
+import concurrent.futures
+import asyncio
+from threading import Thread
+from typing import Tuple
+import sys
+import json
+</code></pre>
+<p>Напишем базовый скрапер/парсер:</p>
+<pre><code class="language-Python">&quot;&quot;&quot;
+Базовая ссылка выглядит так:
+url = 'https://joyreactor.cc/tag/котэ/7491'
+
+
+Парсим новые посты:
+
+req = requests.get(url)
+soup = BeautifulSoup(req.text, 'html.parser')
+posts = soup.findAll('a', class_='prettyPhotoLink')
+videos = soup.findAll('video')
+
+
+print(posts[0].find(&quot;img&quot;).get(&quot;src&quot;))
+-&gt; https://img2.joyreactor.cc/pics/post/котэ-999.jpeg
+
+print(videos[0].find(&quot;source&quot;).get(&quot;src&quot;))
+-&gt; https://img2.joyreactor.cc/pics/post/webm/гифки-живность-котэ-gif-8417001.webm
+
+
+Создаем списки всех ссылок на картинки и видео со страницы:
+
+vid_links = [tag.find(&quot;source&quot;).get(&quot;src&quot;) for tag in videos]
+img_links = [tag.find(&quot;img&quot;).get(&quot;src&quot;) for tag in posts]
+&quot;&quot;&quot;
+
+
+class BaseScraper:
+    _results = [] # хранит результаты времени выполнения
+    &quot;&quot;&quot;
+    Базовый класс для скрейпера. В дальнейшем будет наследоваться
+    у реализаций на asyncio, multiprocessing и threading
+    &quot;&quot;&quot;
+
+    # передаем url с тегом и количество страниц для парсинга
+    def __init__(self, base_url: str, start: int, end: int):
+        self.base_url = base_url
+        self.tag = unquote(self.base_url).split(&quot;/&quot;)[-1]
+        self.page_range = range(start, end)
+        self.session = requests.session()
+        if not path.exists(f&quot;images&quot;):  # создает общую директорию
+            makedirs(f&quot;images&quot;)
+        if (  # создает директорию под каждую из реализаций парсера в общей директории
+            not type(self) is BaseScraper and
+            not path.exists(f&quot;images/{self}&quot;)
+        ):
+            makedirs(f&quot;images/{self}&quot;)
+
+    def extract_img_urls(self, page: int):
+        with self.session.get(self.base_url + &quot;/&quot; + f&quot;{page}&quot;, timeout=8) as req:
+            if req.status_code == 200:
+                soup_obj = BeautifulSoup(req.text, 'html.parser')
+                # в старых постах изображения находятся в классе image, а не prettyPhotoLink
+                if not (posts := soup_obj.findAll(&quot;a&quot;, class_=&quot;prettyPhotoLink&quot;)):
+                    posts = soup_obj.findAll(&quot;div&quot;, class_=&quot;image&quot;)
+                img_links = [tag.find(&quot;img&quot;).get(&quot;src&quot;) for tag in posts]
+                if not img_links:
+                    print(&quot;Did not find anything&quot;)
+                    return []
+                else:
+                    return img_links
+            else:
+                print(f&quot;Strangely, page {page} not found&quot;)
+                return []
+
+    def save_img(self, img: bytes):
+        i = 0
+        while path.exists(f&quot;images/{self}/scraped_{self.tag}_{i}.jpeg&quot;):
+            i += 1
+        try:
+            with open(f&quot;images/{self}/scraped_{self.tag}_{i}.jpeg&quot;, &quot;wb&quot;) as f:
+                # все изображения представлены в jpg, поэтому сохраняем их jpg
+                f.write(img)
+                print(f&quot;Image saved as images/{self}/scraped_{self.tag}_{i}.jpeg&quot;)
+        except IOError as e:
+            print(f&quot;An error occurred: {e}&quot;)
+
+    def run(self):  # общий класс для замера времени и запуска
+        start = time.time()
+        self._calculate()
+        end = time.time()
+        # print(f&quot;Executed {self}, took {end - start} seconds&quot;)
+        BaseScraper._results.append(f&quot;\nExecuted {self}, took {end - start} seconds&quot;)
+
+    def fetch(self, link):
+        print(f&quot;Fetching {link}...&quot;)
+
+    def parse(self, num):
+        print(f&quot;Parsing {num}...&quot;)
+</code></pre>
+<p>Запустим скрипта с передачей параметров. В параметрах указывается до какого числа считать сумму и количество потоков/процессов на которые надо дробить вычисления:</p>
+<pre><code class="language-Python">if __name__ == &quot;__main__&quot;:  # позволяет избежать множественный запуск скрипта
+    if len(sys.argv) == 3 and validate_input(*sys.argv):
+        print(&quot;За работу&quot;)
+        params = tuple(
+            map(int, sys.argv[1:])
+        )  # выделение вводных параметров n, split_num
+        run_jobs(params)
+        print(f&quot;Реальная сумма: {sum([i for i in range(params[0] + 1)])}&quot;)
+    else:
+        print(&quot;Not enough parameters&quot;)
+
+</code></pre>
+<p>Стоит также упомянуть, что запуск кода через четко указанную точку входа "&#95;&#95;main__" позволяет избежать рекурсивный запуск кода из созданных процессов
+```</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../sum_launch/" class="btn btn-neutral float-left" title="Запуск"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../backend/" class="btn btn-neutral float-right" title="Связь с БД">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../sum_launch/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../backend/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
