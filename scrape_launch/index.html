@@ -128,7 +128,7 @@
         print(&quot;Trimmed the trailing '/' in the url&quot;)
     return url, start, end
 </code></pre>
-<p>Входная точка для запуска скрипт:</p>
+<p>Входная точка для запуска скрипта:</p>
 <pre><code class="language-Python">if __name__ == &quot;__main__&quot;:
     print(sys.argv)
     if len(sys.argv) == 4 and (refined_args := validate_input(*sys.argv)):
