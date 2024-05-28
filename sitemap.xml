@@ -2,62 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/</loc>
-         <lastmod>2024-05-07</lastmod>
+         <lastmod>2024-05-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/backend/</loc>
-         <lastmod>2024-05-07</lastmod>
+         <lastmod>2024-05-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/connection/</loc>
-         <lastmod>2024-05-07</lastmod>
+         <lastmod>2024-05-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/description/</loc>
-         <lastmod>2024-05-07</lastmod>
+         <lastmod>2024-05-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/docker-compose/</loc>
+         <lastmod>2024-05-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/docker-extra/</loc>
+         <lastmod>2024-05-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/dockerfile/</loc>
+         <lastmod>2024-05-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/fastapi-endpoints/</loc>
+         <lastmod>2024-05-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/fastapi-scraper/</loc>
+         <lastmod>2024-05-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/main/</loc>
-         <lastmod>2024-05-07</lastmod>
+         <lastmod>2024-05-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/models/</loc>
-         <lastmod>2024-05-07</lastmod>
+         <lastmod>2024-05-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/parsescrape/</loc>
-         <lastmod>2024-05-07</lastmod>
+         <lastmod>2024-05-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/routes/</loc>
-         <lastmod>2024-05-07</lastmod>
+         <lastmod>2024-05-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/scrape_launch/</loc>
-         <lastmod>2024-05-07</lastmod>
+         <lastmod>2024-05-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/sum/</loc>
-         <lastmod>2024-05-07</lastmod>
+         <lastmod>2024-05-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/sum_launch/</loc>
-         <lastmod>2024-05-07</lastmod>
+         <lastmod>2024-05-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/sum_realisations/</loc>
-         <lastmod>2024-05-07</lastmod>
+         <lastmod>2024-05-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

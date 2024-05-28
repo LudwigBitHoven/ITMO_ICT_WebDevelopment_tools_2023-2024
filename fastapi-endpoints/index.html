@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://ludwigbithoven.github.io/ITMO_ICT_WebDevelopment_tools_2023-2024/w/fastapi-endpoints/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Эндпоинты - Чаптыков Н.В. К33422, Средства веб-программирования</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u042d\u043d\u0434\u043f\u043e\u0438\u043d\u0442\u044b";
+        var mkdocs_page_input_path = "fastapi-endpoints.md";
+        var mkdocs_page_url = "/ITMO_ICT_WebDevelopment_tools_2023-2024/w/fastapi-endpoints/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Чаптыков Н.В. К33422, Средства веб-программирования
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Лабораторная работа 1</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Бекенд на FastAPI</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="..">Описание варианта</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../main/">Main</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../models/">Models</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../routes/">Routes</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../connection/">Connection</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Лабораторная работа 2</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Потоки, процессы, асинхронность.</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="#">Сумматор</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../sum/">Импорты, базовый сумматор</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../sum_realisations/">Реализации сумматора</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../sum_launch/">Запуск</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Парсер/скрапер</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../description/">Импорты, базовый скрапер</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../backend/">Связь с БД</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../parsescrape/">Реализации скрапера</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../scrape_launch/">Запуск</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Лабораторная работа 3</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Упаковка FastAPI приложения в Docker, Работа с источниками данных и Очереди</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="#">Docker</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../dockerfile/">Dockerfile</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../docker-compose/">Docker-compose</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../docker-extra/">Сопутствующие скрипты</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">FastAPI</a>
+    <ul class="current">
+                <li class="toctree-l3"><a class="reference internal" href="../fastapi-scraper/">Скрапер</a>
+                </li>
+                <li class="toctree-l3 current"><a class="reference internal current" href="./">Эндпоинты</a>
+    <ul class="current">
+    </ul>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Чаптыков Н.В. К33422, Средства веб-программирования</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Лабораторная работа 3</li>
+          <li class="breadcrumb-item">Упаковка FastAPI приложения в Docker, Работа с источниками данных и Очереди</li>
+          <li class="breadcrumb-item">FastAPI</li>
+      <li class="breadcrumb-item active">Эндпоинты</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="_1">Эндпоинты<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Для прямого добавления изображений используется два эндпоинта из предыдущей лабораторной работы:</p>
+<pre><code class="language-Python">@router.post(&quot;/add_imgsource&quot;)
+async def add_imgsource(imgsrc: BaseImageSource, session=Depends(get_session)):
+    imgsrc = ImageSource.model_validate(imgsrc)
+    cmd = select(ImageSource).where(ImageSource.url == imgsrc.url)
+    if db_imgsrc := session.scalars(cmd).first():
+        return db_imgsrc
+    else:
+        session.add(imgsrc)
+        session.commit()
+        session.refresh(imgsrc)
+        return imgsrc
+
+
+@router.post(&quot;/add_img&quot;)
+async def add_img(img: BaseImage, session=Depends(get_session)):
+    img = Image.model_validate(img)
+    cmd = select(Image).where(Image.url == img.url)
+    if not session.scalars(cmd).first():
+        session.add(img)
+        session.commit()
+        session.refresh(img)
+        return img
+    raise HTTPException(status_code=409, detail=&quot;Row already exists&quot;)
+</code></pre>
+<p>Однако данные реализации работают с помощью Depends и сессий, а значит вызов их отдельным порядком может привести к ошибкам. Для решения возможных проблем будем производить передачу сессии при вызове API внутри функции:</p>
+<pre><code class="language-Python">@app.post(&quot;/scrape&quot;)
+async def root(url: str, start: str, end: str, session=Depends(get_session)):
+    if args := validate_input(None, url, start, end):
+        c = AsyncScrape(*args)
+        await c._calculate_async()
+        for i in c.rows:
+            print(f&quot;append row: {i}&quot;)
+            temp = await append_row(*i, session)
+            print(temp)
+        return {&quot;message&quot;: &quot;completed successfully&quot;}
+    return {&quot;message&quot;: &quot;invalid input&quot;}
+
+
+@app.get(&quot;/&quot;)
+async def append_row(img_source, img_link, session=Depends(get_session)):
+    img_source = BaseImageSource(url=img_source)
+    img_source_json = await add_imgsource(img_source, session)
+    if img_source_json.id:
+        img = BaseImage(imagesource_id=img_source_json.id, url=img_link)
+        result = await add_img(img, session)
+        return f&quot;Success, added data to db&quot;
+    return f&quot;Somethin' went wrong&quot;
+</code></pre>
+<p>Итого эндпоинт /scrape вызывает скрапер, класс скрапера в свою очередь возвращает список с данными для сохранения в БД по окончанию своей работы, append_row с декоратором эндпоинта FastAPI заносит данные возвращенные скрапером в БД с помощью передачи зависимости по цепочке к эндпоинтам /add_img и /add_imgsource.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../fastapi-scraper/" class="btn btn-neutral float-left" title="Скрапер"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../fastapi-scraper/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
